@@ -21,11 +21,11 @@ analyse_file <- function(input) {
   TP = c()
   
   for (i in 1:4) {
-    index <- (i - 1) * 10;
-    We[i] <- sd(file_contents[index:(index + 10), 'dx']) * 4.133
-    Ae[i] <- mean(file_contents[index:(index + 10), 'Ae'])
+    index <- (i - 1) * 10 + 1;
+    We[i] <- sd(file_contents[index:(index + 9), 'dx']) * 4.133
+    Ae[i] <- mean(file_contents[index:(index + 9), 'Ae'])
     ID[i] <- log2(Ae[i] / We[i] + 1)
-    MT[i] <- mean(file_contents[index:(index + 10), 'MT.ms.'])
+    MT[i] <- mean(file_contents[index:(index + 9), 'MT.ms.'])
     TP[i] <- ID[i] / MT[i] * 1000
   }
   
